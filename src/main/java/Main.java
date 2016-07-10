@@ -4,7 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.security.InvalidParameterException;
 import java.util.List;
 
 public class Main {
@@ -37,6 +39,10 @@ public class Main {
                 }
             } else
                 System.out.println(Strings.MESSAGE_NOT_ENOUGH_ARGUMENTS);
+        } catch (MalformedURLException malformedURLException) {
+            System.out.println(Strings.MESSAGE_INVALID_ARGUMENT);
+        } catch (InvalidParameterException invalidParameterException) {
+            System.out.println(invalidParameterException.getMessage());
         } catch (Exception exception) {
             exception.printStackTrace();
         }
