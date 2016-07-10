@@ -9,7 +9,7 @@ public class Constants {
     public static HashMap<String, Integer> CSV_COLUMN_POSITION = new HashMap<>();
 
     static {
-        // Set all required mappings here, columns will appear in the respective order
+        // Set all required mappings here; columns will appear in the respective order
         // CSV column names can be different from their corresponding JSON field names
         JSON_CSV_MAPPING.put("_id", "_id");
         JSON_CSV_MAPPING.put("name", "name");

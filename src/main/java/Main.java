@@ -19,13 +19,18 @@ public class Main {
                 if (jsonNode.size() > 0) {
                     List<String> csv = JsonUtils.getCsvFromJsonArray(jsonNode, Constants.JSON_CSV_MAPPING,
                             Constants.CSV_COLUMN_POSITION);
+
+                    // If a string, 'createfile' is passed as the second argument to the program then a CSV file will be created
+                    // Else output will be printed
                     if (args.length > 1 && args[1].equalsIgnoreCase("createfile")) {
-                        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(args[0].toLowerCase() + ".csv"));
+                        String filename = args[0].toLowerCase() + ".csv";
+                        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename));
                         for (String row : csv) {
                             bufferedWriter.write(row);
                             bufferedWriter.newLine();
                         }
                         bufferedWriter.close();
+                        System.out.println(String.format(Strings.MESSAGE_SUCCESS_FILE_CREATION, filename));
                     } else
                         for (String row : csv)
                             System.out.println(row);
