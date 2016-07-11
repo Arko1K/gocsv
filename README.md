@@ -1,4 +1,4 @@
-# gocsv
+# Go CSV
 
 Converts JSON to CSV for specified mappings.
 
